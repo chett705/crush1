@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question for You</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+            overflow: hidden; /* Prevent scrollbars when the button moves */
+        }
+        .container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        button {
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: absolute;
+        }
+        .yes {
+            background-color: #4caf50;
+            color: white;
+            position: relative;
+        }
+        .yes:hover {
+            background-color: #45a049;
+            transform: scale(1.1);
+        }
+        .no {
+            background-color: #f44336;
+            color: white;
+        }
+        img {
+            margin-top: 30px;
+            max-width: 200px;
+            height: auto;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+    <script>
+        function moveButton() {
+            const noButton = document.getElementById('no');
+            const buttonWidth = noButton.offsetWidth;
+            const buttonHeight = noButton.offsetHeight;
+
+            const randomX = Math.random() * (window.innerWidth - buttonWidth);
+            const randomY = Math.random() * (window.innerHeight - buttonHeight);
+
+            noButton.style.left = `${randomX}px`;
+            noButton.style.top = `${randomY}px`;
+        }
+
+        function showAlert() {
+            alert("Yay! I knew you'd say yes! 💖");
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Do you love me?</h1>
+        <button class="yes" onclick="showAlert()">Yes</button>
+        <button class="no" id="no" onclick="moveButton()">No</button>
+        <img src="https://appstickers-cdn.appadvice.com/1456266570/830616464/4895ad199473dbe07aacdeae88086b11-2.gif" alt="Cute Animation">
+    </div>
+</body>
+</html>
